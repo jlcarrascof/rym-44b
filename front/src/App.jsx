@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import './App.css';
 import Nav from './components/Nav'; 
 import Cards from './components/Cards.jsx';
-import characters from './data.js';
+
 
 function App() {
+   
+   const [characters, setCharacters] = useState([]);
+   
    return (
       <div className='App'>
          <Nav />
