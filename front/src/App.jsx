@@ -42,6 +42,8 @@ function App() {
       .catch(err => console.log(err))
    }
 
+   const onClose = (id) => setCharacters(characters.filter(char => char.id !== parseInt(id)));
+
    return (
       <div className='App'>
          <Nav onSearch={onSearch} />
