@@ -27,7 +27,7 @@ function App() {
 
    return (
       <div className='App'>
-         <Nav />
+         <Nav onSearch={onSearch} />
          <Cards characters={characters} />
       </div>
    );
