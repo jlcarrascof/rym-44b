@@ -1,9 +1,9 @@
 import SearchBar from './SearchBar.jsx';
 
-function Nav() {
+function Nav({ onSearch }) {
 
     return <div>
-        <SearchBar  />
+        <SearchBar onSearch={onSearch} />
     </div>
 }
 

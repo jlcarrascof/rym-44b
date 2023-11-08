@@ -1,9 +1,9 @@
 export default function SearchBar({onSearch}) {
-   console.log(onSearch);
+   // console.log(onSearch);
    return (
       <div>
          <input type='search' />
-         <button onClick={() => onSearch('ID del personaje')}>
+         <button onClick={() => onSearch()}>
             Agregar
          </button> 
       </div>
