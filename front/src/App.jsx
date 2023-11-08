@@ -22,7 +22,7 @@ function App() {
    };
 
    function onSearch() {
-      setCharacters(oldCharacters => [...oldCharacters, example]);
+      setCharacters(oldChars => [...oldChars, example]);
    }
 
    return (
