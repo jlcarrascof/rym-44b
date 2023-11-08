@@ -26,16 +26,18 @@ function App() {
 
    const API_KEY = 'pi-javierjmartinezf';
 
+
    function onSearch(id) {
-      // setCharacters(oldChars => [...oldChars, example]);
+      // if (!id) alert('Por favor, ingrese un ID válido');
+
       axios(`https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`)
       .then(({data}) => {
-         // console.log(data);
          if (data.name) {
             setCharacters(oldChars => [...oldChars, data]);
          }
       })
-   }
+      .catch(err => (err.response.status === 404) ? alert('No se encontró el personaje') : alert('Error inesperado'));
+      }
 
    return (
       <div className='App'>
