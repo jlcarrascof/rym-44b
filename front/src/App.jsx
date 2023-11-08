@@ -28,7 +28,13 @@ function App() {
 
    function onSearch(id) {
       // setCharacters(oldChars => [...oldChars, example]);
-      axios(`https://rym2.up.railway.app/api/character/{id}?key=${API_KEY}`)
+      axios(`https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`)
+      .then(({data}) => {
+         // console.log(data);
+         if (data.name) {
+            setCharacters(oldChars => [...oldChars, data]);
+         }
+      })
    }
 
    return (
