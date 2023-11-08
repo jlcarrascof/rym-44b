@@ -21,7 +21,7 @@ function App() {
       image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
    };
 
-   function onSearch() {
+   function onSearch(id) {
       setCharacters(oldChars => [...oldChars, example]);
    }
 

@@ -1,4 +1,3 @@
-import { set } from 'immer/dist/internal';
 import { useState } from 'react';
 
 export default function SearchBar({onSearch}) {
@@ -11,7 +10,7 @@ export default function SearchBar({onSearch}) {
    }
    
    const search = () => {  
-      onSearch();
+      onSearch(id);
       setID('');
    }
 
