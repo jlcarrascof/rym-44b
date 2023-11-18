@@ -1,10 +1,11 @@
-import SearchBar from './SearchBar.jsx';
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar.jsx';
 import NavLinkComp from './navLink/NavLinkComp';
 
 function Nav({ onSearch }) {
 
-    return ( <div>
+    return ( 
+    <div>
         <Link to='/home'>
             <button>Home</button>
         </Link>
