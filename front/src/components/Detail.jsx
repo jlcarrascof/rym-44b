@@ -1,7 +1,7 @@
 function Detail() {
 
     return <div>
-        Detail
+        Estoy en el Detail
     </div> 
 }
 
