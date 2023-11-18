@@ -2,14 +2,14 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const API_KEY = 'pi-javierjmartinezf';
 
 function Detail() {
 
     const { id } = useParams();
-    const [character, setCharacter] = useState({
+    const API_KEY = 'pi-javierjmartinezf';
+    const [character, setCharacter] = useState({});
 
-    });
+    console.log(character)
 
     useEffect(() => {
         axios(`https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`)
