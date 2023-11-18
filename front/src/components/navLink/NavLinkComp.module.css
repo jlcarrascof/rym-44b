@@ -1,9 +1,9 @@
 .isActive {
-    color: rgb(13, 144, 63);
+    color: rgb(21, 242, 106);
     font-weight: 700;
 }
 
 .unActive {
-    color: rgb(144, 22, 13);
-    font-weight: 400;
+    color: rgb(233, 85, 74);
+    font-weight: 700;
 }

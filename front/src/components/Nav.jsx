@@ -1,10 +1,10 @@
 import SearchBar from './SearchBar.jsx';
 import { Link } from 'react-router-dom';
-import NavLinkComp from './navLink/NavLinkComp.jsx';
+import NavLinkComp from './navLink/NavLinkComp';
 
 function Nav({ onSearch }) {
 
-    return <div>
+    return ( <div>
         <Link to='/home'>
             <button>Home</button>
         </Link>
@@ -13,6 +13,7 @@ function Nav({ onSearch }) {
         </NavLinkComp>
         <SearchBar onSearch={onSearch} />
     </div>
+    );
 }
 
 export default Nav;

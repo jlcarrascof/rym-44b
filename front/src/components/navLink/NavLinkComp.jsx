@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import style from './navLinkComp.css';
+import style from './NavLinkComp.module.css';
 
 function NavLinkComp({to, children, ...props}) {
   return (
@@ -9,7 +9,7 @@ function NavLinkComp({to, children, ...props}) {
     >
       {children}
     </NavLink>
-  );
+  )
 }
 
 export default NavLinkComp;
