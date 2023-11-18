@@ -10,7 +10,7 @@ function Nav({ onSearch }) {
             <button>Home</button>
         </Link>
         <NavLinkComp to='/about'>
-            <button>About</button>
+            <span>About</span>
         </NavLinkComp>
         <SearchBar onSearch={onSearch} />
     </div>
