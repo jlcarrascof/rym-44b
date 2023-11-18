@@ -1,5 +1,6 @@
 import SearchBar from './SearchBar.jsx';
 import { Link } from 'react-router-dom';
+import NavLinkComp from './navLink/NavLinkComp.jsx';
 
 function Nav({ onSearch }) {
 
@@ -7,9 +8,9 @@ function Nav({ onSearch }) {
         <Link to='/home'>
             <button>Home</button>
         </Link>
-        <Link to='/about'>
+        <NavLinkComp to='/about'>
             <button>About</button>
-        </Link>
+        </NavLinkComp>
         <SearchBar onSearch={onSearch} />
     </div>
 }
