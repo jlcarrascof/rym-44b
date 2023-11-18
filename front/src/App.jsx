@@ -4,6 +4,8 @@ import './App.css';
 import axios from 'axios';
 import Nav from './components/Nav'; 
 import Cards from './components/Cards.jsx';
+import About from './components/About.jsx';
+import Detail from './components/Detail.jsx';
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
          <Nav onSearch={onSearch} />
          <Routes>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/detail/:id' element={<Detail />} />
          </Routes>   
       </div>
    );
