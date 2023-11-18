@@ -13,8 +13,17 @@ function Detail() {
 
     useEffect(() => {
         axios(`https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`)
-            .then(response => setCharacter(response.data))
-    }, []);
+            .then(({ data }) => { 
+                if (data.name) {
+                    setCharacter(data)
+                } else {
+                    alert('No hay personajes con ese ID')
+                }   
+             })
+
+             return setCharacter({})
+
+    }, [id]);
 
     return <div>
         Estoy en el Detail
