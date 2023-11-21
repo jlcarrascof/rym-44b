@@ -7,6 +7,13 @@ function Form() {
         password: '',
     });
 
+    function handleChange(evento) {
+        setUserData({
+            ...userData,
+            [evento.target.name]: evento.target.value
+        })
+    }   
+
     return <div>
         <form>
             <label htmlFor="email">
