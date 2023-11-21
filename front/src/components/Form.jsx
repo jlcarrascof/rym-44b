@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 function Form() {
+
+    const [email, setEmail] = useState('');
 
     return <div>
         <form>
