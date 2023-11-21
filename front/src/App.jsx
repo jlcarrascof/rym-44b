@@ -34,7 +34,7 @@ function App() {
 
    const API_KEY = 'pi-javierjmartinezf';
    const EMAIL = 'javier@mail.com';
-
+   const PASSWORD = 'pass1234';
 
    function onSearch(id) {
       if(!id) alert('Ingresa por favor un ID')
