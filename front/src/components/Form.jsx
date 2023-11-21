@@ -23,7 +23,8 @@ function Form() {
                     placeholder='Ingrese un email'
                     id="email"
                     name='email'
-                    value={userData.email} />
+                    value={userData.email}
+                    onChange={handleChange} />
             </label>
 
             <label htmlFor="password">
@@ -33,7 +34,8 @@ function Form() {
                     placeholder='Ingrese un password'
                     id='password'
                     name='password'
-                    value={userData.password} />
+                    value={userData.password}
+                    onChange={handleChange} />
             </label>
 
             <button>
