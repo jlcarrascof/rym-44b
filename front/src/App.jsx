@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Nav from './components/Nav'; 
@@ -53,6 +53,14 @@ function App() {
    }
 
    const onClose = (id) => setCharacters(characters.filter(char => char.id !== parseInt(id)));
+   const navigate = useNavigate();
+
+   function login(userData) { 
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      }
+   }
 
    return (
       <div className='App'>
