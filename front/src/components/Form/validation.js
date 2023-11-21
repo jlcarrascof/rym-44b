@@ -6,8 +6,7 @@ function validation(data) {
     let errors = {};
 
     if (!regexEmail.test(data.email)) errors.email = 'El correo electrónico no es válido';
-    if (!exLongChar.test(data.name)) errors.name = 'El nombre no es válido';
-
+    if (!exLongChar.test(data.email)) errors.email = 'La longitud debe tener entre 1 y 35 caracteres';
 }
 
 export default validation;
