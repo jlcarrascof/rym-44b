@@ -17,7 +17,6 @@ function App() {
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
 
-   
    /*
    const example = {
       id: 1,
@@ -34,7 +33,9 @@ function App() {
    */
 
    const API_KEY = 'pi-javierjmartinezf';
-   
+   const EMAIL = 'javier@mail.com';
+
+
    function onSearch(id) {
       if(!id) alert('Ingresa por favor un ID')
       if(characters.find(char => char.id === parseInt(id))) return alert (`Ya existe el personaje con ese id ${id}`)
