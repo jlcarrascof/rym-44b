@@ -2,18 +2,31 @@ import { useState } from 'react';
 
 function Form() {
 
-    const [email, setEmail] = useState('');
+    const [userData, setUserData] = useState({
+        email: '',
+        password: '',
+    });
 
     return <div>
         <form>
             <label htmlFor="email">
                 Email:
-                <input type="text" />
+                <input 
+                    type="text"
+                    placeholder='Ingrese un email'
+                    id="email"
+                    name='email'
+                    value={userData.email} />
             </label>
 
             <label htmlFor="password">
                 Password:
-                <input type="text" />
+                <input 
+                    type="text"
+                    placeholder='Ingrese un password'
+                    id='password'
+                    name='password'
+                    value={userData.password} />
             </label>
 
             <button>
