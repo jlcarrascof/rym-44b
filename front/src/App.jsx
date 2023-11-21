@@ -12,8 +12,8 @@ import Form from './components/Form';
 
 function App() {
    
-   const location = useLocation();
-   console.log(location);
+   const { pathname } = useLocation();
+   
    const [characters, setCharacters] = useState([]);
    
    /*
@@ -53,7 +53,7 @@ function App() {
 
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} />
+         { pathname !== '/' && <Nav onSearch={onSearch} /> }
          <Routes>
             <Route path='/' element={<Form />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
