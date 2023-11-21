@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Nav from './components/Nav'; 
@@ -7,10 +7,13 @@ import Cards from './components/Cards.jsx';
 import About from './components/About.jsx';
 import Detail from './components/Detail.jsx';
 import Error404 from './components/Error404';
+import Form from './components/Form';
 
 
 function App() {
    
+   const location = useLocation();
+   console.log(location);
    const [characters, setCharacters] = useState([]);
    
    /*
@@ -52,6 +55,7 @@ function App() {
       <div className='App'>
          <Nav onSearch={onSearch} />
          <Routes>
+            <Route path='/' element={<Form />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />} />
