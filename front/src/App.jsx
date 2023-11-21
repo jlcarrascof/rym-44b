@@ -15,6 +15,8 @@ function App() {
    const { pathname } = useLocation();
    
    const [characters, setCharacters] = useState([]);
+   const [access, setAccess] = useState(false);
+
    
    /*
    const example = {
