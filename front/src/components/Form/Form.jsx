@@ -10,11 +10,19 @@ function Form() {
     const [errors, setErrors] = useState({});
 
     function handleChange(evento) {
+        setErrors(validate({ 
+            ...userData, [evento.target.name]: evento.target.value 
+        }));
+
         setUserData({
             ...userData,
             [evento.target.name]: evento.target.value
         })
-    }   
+    }
+    
+    function handleSubmit(evento) { 
+
+    }
 
     return <div>
         <form>
@@ -29,6 +37,8 @@ function Form() {
                     onChange={handleChange} />
             </label>
 
+            <span>{errors.email}</span>
+
             <label htmlFor="password">
                 Password:
                 <input 
@@ -39,6 +49,8 @@ function Form() {
                     value={userData.password}
                     onChange={handleChange} />
             </label>
+
+            <span>{errors.password}</span>
 
             <button>
                 Submit
