@@ -40,6 +40,7 @@ function Form() {
             </label>
 
             <span>{errors.email}</span>
+            <br />
 
             <label htmlFor="password">
                 Password:
@@ -53,6 +54,7 @@ function Form() {
             </label>
 
             <span>{errors.password}</span>
+            <br />
 
             <button>
                 Submit

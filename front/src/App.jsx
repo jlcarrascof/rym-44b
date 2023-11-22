@@ -64,6 +64,8 @@ function App() {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
          setAccess(true);
          navigate('/home');
+      } else {
+         alert('Usuario o contraseña incorrectos');
       }
    }
 
