@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import validation from './validation';
 
 function Form() {
 
@@ -10,7 +11,7 @@ function Form() {
     const [errors, setErrors] = useState({});
 
     function handleChange(evento) {
-        setErrors(validate({ 
+        setErrors(validation({ 
             ...userData, [evento.target.name]: evento.target.value 
         }));
 
@@ -23,7 +24,6 @@ function Form() {
     function handleSubmit(evento) {
         evento.preventDefault();
         login(userData);
-
     }
 
     return <div>
