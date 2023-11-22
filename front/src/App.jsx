@@ -71,7 +71,7 @@ function App() {
       <div className='App'>
          { pathname !== '/' && <Nav onSearch={onSearch} /> }
          <Routes>
-            <Route path='/' element={<Form />} />
+            <Route path='/' element={<Form login={login} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />} />
