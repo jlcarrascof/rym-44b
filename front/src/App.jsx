@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
@@ -35,6 +35,11 @@ function App() {
    const API_KEY = 'pi-javierjmartinezf';
    const EMAIL = 'javier@mail.com';
    const PASSWORD = 'pass1234';
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
 
    function onSearch(id) {
       if(!id) alert('Ingresa por favor un ID')
