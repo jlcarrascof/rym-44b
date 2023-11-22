@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Nav from './components/Nav'; 
@@ -7,12 +7,16 @@ import Cards from './components/Cards.jsx';
 import About from './components/About.jsx';
 import Detail from './components/Detail.jsx';
 import Error404 from './components/Error404';
+import Form from './components/form/Form';
 
 
 function App() {
    
-   const [characters, setCharacters] = useState([]);
+   const { pathname } = useLocation();
    
+   const [characters, setCharacters] = useState([]);
+   const [access, setAccess] = useState(false);
+
    /*
    const example = {
       id: 1,
@@ -29,7 +33,14 @@ function App() {
    */
 
    const API_KEY = 'pi-javierjmartinezf';
-   
+   const EMAIL = 'javier@mail.com';
+   const PASSWORD = 'pass1234';
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
+
    function onSearch(id) {
       if(!id) alert('Ingresa por favor un ID')
       if(characters.find(char => char.id === parseInt(id))) return alert (`Ya existe el personaje con ese id ${id}`)
@@ -47,11 +58,22 @@ function App() {
    }
 
    const onClose = (id) => setCharacters(characters.filter(char => char.id !== parseInt(id)));
+   const navigate = useNavigate();
+
+   function login(userData) { 
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      } else {
+         alert('Usuario o contraseña incorrectos');
+      }
+   }
 
    return (
       <div className='App'>
-         <Nav onSearch={onSearch} />
+         { pathname !== '/' && <Nav onSearch={onSearch} /> }
          <Routes>
+            <Route path='/' element={<Form login={login} />} />
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
             <Route path='/about' element={<About />} />
             <Route path='/detail/:id' element={<Detail />} />
