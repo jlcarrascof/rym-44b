@@ -20,12 +20,14 @@ function Form() {
         })
     }
     
-    function handleSubmit(evento) { 
+    function handleSubmit(evento) {
+        evento.preventDefault();
+        login(userData);
 
     }
 
     return <div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <label htmlFor="email">
                 Email:
                 <input 
