@@ -29,11 +29,8 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
       <div>
          <button onClick={() => onClose(id)}>X</button>
          {
-            isFav ? (
-               <button onClick={handleFavorite}>❤️</button>
-            ) : (
+            isFav ? <button onClick={handleFavorite}>❤️</button> : 
                <button onClick={handleFavorite}>🤍</button>
-            )
          }
          <h2>{id}</h2>
          <Link to={`/detail/${id}`}><h2>{name}</h2></Link>
@@ -49,18 +46,18 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
 function mapDispatchToProps(dispatch) {
    return {
       addFav:function(character) {
-         dispatch(addFav(character));
+         dispatch(addFav(character))
       }, 
       removeFav:function(id) {
-         dispatch(removeFav(id));
+         dispatch(removeFav(id))
       }
-   };
+   }
 }
 
 function mapStateToProps(state) {
    return {
       myFavorites: state.myFavorites
-   };
+   }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
