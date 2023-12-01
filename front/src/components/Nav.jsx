@@ -9,6 +9,9 @@ function Nav({ onSearch }) {
         <Link to='/home'>
             <button>Home</button>
         </Link>
+        <NavLinkComp to='/favorites'>
+            <span>Favorites</span>
+        </NavLinkComp>        
         <NavLinkComp to='/about'>
             <span>About</span>
         </NavLinkComp>
