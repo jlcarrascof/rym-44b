@@ -49,4 +49,10 @@ function mapDispatchToProps(dispatch) {
    };
 }
 
-export default connect(null, mapDispatchToProps)(Card);
+function mapStateToProps(state) {
+   return {
+      myFavorites: state.myFavorites
+   };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
