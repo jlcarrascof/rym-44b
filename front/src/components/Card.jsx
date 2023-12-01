@@ -7,6 +7,16 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
    
    const [isFav, setIsFav] = useState(false);
 
+   function handleFavorite() { 
+      if (isFav) {
+         setIsFav(false);
+         removeFav(id);
+      } else {
+         setIsFav(true);
+         addFav({id, name, status, species, gender, origin, image});
+      }
+   }  
+
    return (
       <div>
          <button onClick={() => onClose(id)}>X</button>
