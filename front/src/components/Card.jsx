@@ -1,6 +1,8 @@
+import { connect } from "react-redux";
+import { addFav, removeFav } from "../redux/actions/actions";
 import { Link } from "react-router-dom";
 
-export default function Card({id, name, status, species, gender, origin, image, onClose}) {
+function Card({id, name, status, species, gender, origin, image, onClose}) {
    return (
       <div>
          <button onClick={() => onClose(id)}>X</button>
@@ -14,3 +16,17 @@ export default function Card({id, name, status, species, gender, origin, image, 
       </div>
    );
 }
+
+function mapDispatchToProps(dispatch) {
+   return {
+      addFav:function(character) {
+         dispatch(addFav(character));
+      }, 
+      removeFav:function(id) {
+         dispatch(removeFav(id));
+      }
+   };
+}
+
+export default Card;
+```
