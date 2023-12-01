@@ -1,8 +1,12 @@
+import { useState } from "react";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../redux/actions/actions";
 import { Link } from "react-router-dom";
 
 function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav}) {
+   
+   const [isFav, setIsFav] = useState(false);
+
    return (
       <div>
          <button onClick={() => onClose(id)}>X</button>
