@@ -22,7 +22,8 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
          if (fav.id === id) {
             setIsFav(true);
          }
-      }, [myFavorites])}); 
+      })  
+      }, [myFavorites]); 
 
    return (
       <div>
