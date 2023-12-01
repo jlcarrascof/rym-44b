@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../redux/actions/actions";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
    
+   const { pathname } = useLocation();
+
    const [isFav, setIsFav] = useState(false);
 
    function handleFavorite() { 
@@ -27,7 +29,10 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
 
    return (
       <div>
-         <button onClick={() => onClose(id)}>X</button>
+         {
+            pathname === '/home' && <button onClick={() => onClose(id)}>X</button>
+         }
+         
          {
             isFav ? <button onClick={handleFavorite}>❤️</button> : 
                <button onClick={handleFavorite}>🤍</button>
