@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../redux/actions/actions";
 import { Link } from "react-router-dom";
 
-function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav}) {
+function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
    
    const [isFav, setIsFav] = useState(false);
 
@@ -16,6 +16,13 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
          addFav({id, name, status, species, gender, origin, image});
       }
    }  
+
+   useEffect(() => {
+      myFavorites.forEach(fav => {
+         if (fav.id === id) {
+            setIsFav(true);
+         }
+      }, [myFavorites])}); 
 
    return (
       <div>
