@@ -23,10 +23,10 @@ export function filterCards(gender) {
   };  
 }
 
-export function orderCards(order) {
+export function orderCards(payload) {
   return {
     type: ORDER,
-    payload: order
+    payload
   };
 }
 
