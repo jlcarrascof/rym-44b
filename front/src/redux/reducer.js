@@ -18,6 +18,12 @@ function reducer(state = initialState, { type, payload }) {
          ...state,
          myFavorites: state.myFavorites.filter(char => char.id !== Number(payload))
          };
+    case FILTER:
+        const filtered = state.allCharacters.filter(char => char.gender === payload);
+        return {
+            ...state,
+            myFavorites: filtered
+        };
      default:
         return {...state};
     }
