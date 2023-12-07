@@ -1,4 +1,4 @@
-import { ADD_FAV, REMOVE_FAV } from './actionsTypes';
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './actionsTypes';
 
 // * Action creators
 
