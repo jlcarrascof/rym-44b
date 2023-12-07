@@ -24,6 +24,19 @@ function reducer(state = initialState, { type, payload }) {
             ...state,
             myFavorites: filtered
         };
+     case ORDER:
+        const orderChar = state.allCharacters.
+        sort((a, b) => {
+            if (payload === 'ascendente') {
+                return a.id - b.id;
+            } else {
+                return b.id - a.id;
+            }
+        });
+        return {
+            ...state,
+            myFavorites: [...orderChar]
+        };     
      default:
         return {...state};
     }
