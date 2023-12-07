@@ -1,8 +1,17 @@
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Card from './Card'
 
-function Favorites({ myFavorites }) {
+function Favorites() {
+    const myFavorites = useSelector(state => state.favorites)
+    console.log(myFavorites)
+
     return <div>
+
+        <div>
+            
+        </div>    
+
+        <div>
             <h1>Favorites</h1>
             {
                 myFavorites.map((char) => { 
@@ -19,12 +28,10 @@ function Favorites({ myFavorites }) {
                 })
             }
         </div>
+    </div>    
 }
 
-function mapStateToProps(state) {
-   return {
-      myFavorites: state.myFavorites
-   }
-}
 
-export default connect(mapStateToProps)(Favorites)
+
+
+export default Favorites
