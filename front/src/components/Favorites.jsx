@@ -11,17 +11,21 @@ function Favorites() {
         dispatch(orderCards(evento.target.value))
     }
 
+    function handleFilter(evento) { 
+        dispatch(filterCards(evento.target.value))
+    }
+
     return <div>
 
         <div>
-            <select name='filter'>
+            <select name='filter' onChange={filterCards}>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Genderless">Genderless</option>
                 <option value="unknown">Unknown</option> 
             </select>
 
-            <select name='order'>
+            <select name='order' onChange={orderCards}>
                 <option value="ascendente">Ascendente</option>
                 <option value="descendente">Descendente</option>
             </select>        
@@ -46,8 +50,5 @@ function Favorites() {
         </div>
     </div>    
 }
-
-
-
 
 export default Favorites
