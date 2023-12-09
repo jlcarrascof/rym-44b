@@ -3,8 +3,13 @@ import { filterCards, orderCards } from '../redux/actions/actions'
 import Card from './Card'
 
 function Favorites() {
+    const dispatch = useDispatch()
     const myFavorites = useSelector(state => state.favorites)
     console.log(myFavorites)
+
+    function handleOrder(evento) {
+        dispatch(orderCards(evento.target.value))
+    }
 
     return <div>
 
