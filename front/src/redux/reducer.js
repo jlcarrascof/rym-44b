@@ -15,8 +15,8 @@ function reducer(state = initialState, { type, payload }) {
          }
      case REMOVE_FAV:
          return {
-         ...state,
-         myFavorites: state.myFavorites.filter(char => char.id !== Number(payload))
+            ...state,
+            myFavorites: state.myFavorites.filter(char => char.id !== Number(payload))
          }
     case FILTER:
         const filtered = state.allCharacters.filter(char => char.gender === payload)
@@ -27,16 +27,14 @@ function reducer(state = initialState, { type, payload }) {
      case ORDER:
         const orderChar = state.allCharacters.
         sort((a, b) => {
-            if (payload === 'ascendente') {
-                return a.id - b.id;
-            } else {
-                return b.id - a.id;
-            }
-        });
+            if (payload === 'ascendente') 
+                return a.id - b.id
+            return b.id - a.id
+        })
         return {
             ...state,
             myFavorites: [...orderChar]
-        };     
+        }     
      default:
         return {...state}
     }
