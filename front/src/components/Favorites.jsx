@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { filterCards, orderCards } from '../redux/actions/actions'
 import Card from './Card'
 
 function Favorites() {
