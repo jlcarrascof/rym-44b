@@ -8,7 +8,17 @@ function Favorites() {
     return <div>
 
         <div>
-            
+            <select name='filter'>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Genderless">Genderless</option>
+                <option value="unknown">Unknown</option> 
+            </select>
+
+            <select name='order'>
+                <option value="ascendente">Ascendente</option>
+                <option value="descendente">Descendente</option>
+            </select>        
         </div>    
 
         <div>
