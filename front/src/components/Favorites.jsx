@@ -1,8 +1,39 @@
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { filterCards, orderCards } from '../redux/actions/actions'
 import Card from './Card'
 
-function Favorites({ myFavorites }) {
+function Favorites() {
+    const dispatch = useDispatch()
+    const myFavorites = useSelector(state => state.myFavorites)
+    // console.log(myFavorites)
+
+    function handleOrder(evento) {
+        dispatch(orderCards(evento.target.value))
+    }
+
+    function handleFilter(evento) { 
+        dispatch(filterCards(evento.target.value))
+    }
+
     return <div>
+
+        <div>
+            <select name="filter" onChange={handleFilter} defaultValue="All" >
+                <option value="All">Mostrar Todos</option>    
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Genderless">Genderless</option>
+                <option value="unknown">Unknown</option> 
+            </select>
+
+            <select name="order" onChange={handleOrder} defaultValue="orderChar">
+                <option value="orderChar" disabled='disabled'>Order....</option>
+                <option value="ascendente">Ascendente</option>
+                <option value="descendente">Descendente</option>
+            </select>        
+        </div>    
+
+        <div>
             <h1>Favorites</h1>
             {
                 myFavorites.map((char) => { 
@@ -19,12 +50,7 @@ function Favorites({ myFavorites }) {
                 })
             }
         </div>
+    </div>    
 }
 
-function mapStateToProps(state) {
-   return {
-      myFavorites: state.myFavorites
-   }
-}
-
-export default connect(mapStateToProps)(Favorites)
+export default Favorites

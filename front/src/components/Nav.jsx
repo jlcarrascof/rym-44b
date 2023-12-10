@@ -10,10 +10,10 @@ function Nav({ onSearch }) {
             <button>Home</button>
         </Link>
         <NavLinkComp to='/favorites'>
-            <span>Favorites</span>
+            <span>Favorites </span>
         </NavLinkComp>        
         <NavLinkComp to='/about'>
-            <span>About</span>
+            <span> About</span>
         </NavLinkComp>
         <SearchBar onSearch={onSearch} />
     </div>
