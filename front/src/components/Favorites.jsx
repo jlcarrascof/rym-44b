@@ -19,7 +19,7 @@ function Favorites() {
 
         <div>
             <select name="filter" onChange={handleFilter} defaultValue="All" >
-                <option value="All">All</option>    
+                <option value="All">Mostrar Todos</option>    
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Genderless">Genderless</option>
