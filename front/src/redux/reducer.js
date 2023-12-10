@@ -22,7 +22,7 @@ function reducer(state = initialState, { type, payload }) {
         const filtered = state.allCharacters.filter(char => char.gender === payload)
         return {
             ...state,
-            myFavorites: filtered
+            myFavorites: payload === 'All' ? state.allCharacters : filtered
         }
      case ORDER:
         const orderChar = state.myFavorites.
