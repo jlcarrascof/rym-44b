@@ -4,8 +4,8 @@ import Card from './Card'
 
 function Favorites() {
     const dispatch = useDispatch()
-    const myFavorites = useSelector((state) => state.myFavorites)
-    // console.log(myFavorites)
+    const myFavorites = useSelector(state => state.myFavorites)
+    console.log(myFavorites)
 
     function handleOrder(evento) {
         dispatch(orderCards(evento.target.value))
@@ -18,14 +18,14 @@ function Favorites() {
     return <div>
 
         <div>
-            <select name='filter' onChange={filterCards}>
+            <select name="filter" onChange={filterCards}>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Genderless">Genderless</option>
                 <option value="unknown">Unknown</option> 
             </select>
 
-            <select name='order' onChange={orderCards}>
+            <select name="order" onChange={orderCards}>
                 <option value="ascendente">Ascendente</option>
                 <option value="descendente">Descendente</option>
             </select>        
