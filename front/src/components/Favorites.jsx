@@ -18,7 +18,7 @@ function Favorites() {
     return <div>
 
         <div>
-            <select name="filter" onChange={handleFilter}>
+            <select name="filter" onChange={handleFilter} defaultValue="All" >
                 <option value="All">All</option>    
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -26,7 +26,8 @@ function Favorites() {
                 <option value="unknown">Unknown</option> 
             </select>
 
-            <select name="order" onChange={handleOrder}>
+            <select name="order" onChange={handleOrder} defaultValue="orderChar">
+                <option value="orderChar" disabled='disabled'>Order....</option>
                 <option value="ascendente">Ascendente</option>
                 <option value="descendente">Descendente</option>
             </select>        
