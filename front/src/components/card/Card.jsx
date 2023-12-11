@@ -30,14 +30,16 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
 
    return (
       <div className={style.container}>
-         {
-            pathname === '/home' && <button onClick={() => onClose(id)}>X</button>
-         }
-         
-         {
-            isFav ? <button onClick={handleFavorite}>❤️</button> : 
-               <button onClick={handleFavorite}>🤍</button>
-         }
+         <div>
+            {
+               pathname === '/home' && <button onClick={() => onClose(id)}>X</button>
+            }
+            
+            {
+               isFav ? <button onClick={handleFavorite}>❤️</button> : 
+                  <button onClick={handleFavorite}>🤍</button>
+            }
+         </div>
          <h2>{id}</h2>
          <Link to={`/detail/${id}`}><h2>{name}</h2></Link>
          <h2>{status}</h2>
