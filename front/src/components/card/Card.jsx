@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions/actions";
 import { Link, useLocation } from "react-router-dom";
+import style from './Card.module.css';
 
 function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
    

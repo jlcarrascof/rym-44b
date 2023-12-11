@@ -1,5 +1,13 @@
 .container {
     border: solid 1px red;
+    border-radius: 2em;
     background-color: #58D893;
+    width: 90vw;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2em;
+    margin: 1em;
+    height: fit-content;
 }
