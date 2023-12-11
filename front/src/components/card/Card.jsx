@@ -29,7 +29,7 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
       }, [myFavorites]); 
 
    return (
-      <div>
+      <div className={style.container}>
          {
             pathname === '/home' && <button onClick={() => onClose(id)}>X</button>
          }

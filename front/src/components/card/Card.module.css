@@ -1,0 +1,18 @@
+.container {
+    border: ridge 1px #DB589B;
+    width: 22em;
+    margin: 0.5em;
+    border-radius: 2em;
+    padding: 1em;
+    box-shadow: rgba(50, 67, 67, 0.5) 0px 5px 8px;
+    background-color: #E0625E9A;  
+}
+
+.container button {
+    border: solid 1px red;
+    border-radius: 0.5em;
+    font-size: 1em;
+    color: #d63487;
+    transition: transform 0.5s ease;
+    background-color: rgba(240, 213, 227, 0.591);
+}
