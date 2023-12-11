@@ -1,0 +1,5 @@
+.container {
+    border: solid 1px red;
+    background-color: #58D893;
+    display: flex;
+}
