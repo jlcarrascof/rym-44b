@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Btn, DivSearch, Input } from './SearchStyled';  
 
 export default function SearchBar({onSearch}) {
    
@@ -15,11 +16,11 @@ export default function SearchBar({onSearch}) {
    }
 
    return (
-      <div>
-         <input type='search' onChange={handleChange}  value={id} />
-         <button onClick={search}>
+      <DivSearch>
+         <Input type='search' onChange={handleChange}  value={id} />
+         <Btn onClick={search}>
             Agregar
-         </button> 
-      </div>
+         </Btn> 
+      </DivSearch>
    );
 }

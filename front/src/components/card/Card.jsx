@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { addFav, removeFav } from "../redux/actions/actions";
+import { addFav, removeFav } from "../../redux/actions/actions";
 import { Link, useLocation } from "react-router-dom";
+import style from './Card.module.css';
 
 function Card({id, name, status, species, gender, origin, image, onClose, addFav, removeFav, myFavorites}) {
    
@@ -28,21 +29,23 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
       }, [myFavorites]); 
 
    return (
-      <div>
-         {
-            pathname === '/home' && <button onClick={() => onClose(id)}>X</button>
-         }
-         
-         {
-            isFav ? <button onClick={handleFavorite}>❤️</button> : 
-               <button onClick={handleFavorite}>🤍</button>
-         }
+      <div className={style.container}>
+         <div>
+            {
+               pathname === '/home' && <button onClick={() => onClose(id)}>X</button>
+            }
+            
+            {
+               isFav ? <button onClick={handleFavorite}>❤️</button> : 
+                  <button onClick={handleFavorite}>🤍</button>
+            }
+         </div>
          <h2>{id}</h2>
          <Link to={`/detail/${id}`}><h2>{name}</h2></Link>
          <h2>{status}</h2>
          <h2>{species}</h2>
          <h2>{gender}</h2>
-         <h2>{origin}</h2>
+         <h2 style={{fontSize: '20px'}}>{origin}</h2>
          <img src={image} alt={name} />
       </div>
    );

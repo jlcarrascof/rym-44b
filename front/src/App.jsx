@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
-import Nav from './components/Nav'; 
-import Cards from './components/Cards.jsx';
-import About from './components/About.jsx';
-import Detail from './components/Detail.jsx';
-import Error404 from './components/Error404';
+import Nav from './components/nav/Nav'; 
+import Cards from './components/cards/Cards';
+import About from './components/about/About';
+import Detail from './components/detail/Detail';
+import Error404 from './components/error404/Error404';
 import Form from './components/form/Form';
-import Favorites from './components/Favorites.jsx';
+import Favorites from './components/favorites/Favorites';
 
 
 function App() {

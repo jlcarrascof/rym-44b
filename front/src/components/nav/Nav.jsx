@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import SearchBar from './SearchBar.jsx';
-import NavLinkComp from './navLink/NavLinkComp';
+import SearchBar from '../searchbar/SearchBar';
+import NavLinkComp from '../navLink/NavLinkComp';
+import style from './Nav.module.css';
 
 function Nav({ onSearch }) {
 
     return ( 
-    <div>
+    <div className={style.nav}>
         <Link to='/home'>
             <button>Home</button>
         </Link>

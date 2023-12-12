@@ -1,0 +1,13 @@
+.container {
+    border: none;
+    border-radius: 2em;
+    background-color: #58D893;
+    width: 93.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2em;
+    margin: 1em;
+    height: fit-content;
+}
