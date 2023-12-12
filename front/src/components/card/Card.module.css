@@ -5,7 +5,7 @@
     border-radius: 2em;
     padding: 1em;
     box-shadow: rgba(50, 67, 67, 0.5) 0px 5px 8px;
-    background-color: #E0625E9A;
+    background-color: #f8a7a49a;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,7 @@
 }
 
 .container button {
-    border: solid 1px red;
+    border: solid 1px #DB589B;
     border-radius: 0.5em;
     font-size: 1em;
     color: #d63487;
