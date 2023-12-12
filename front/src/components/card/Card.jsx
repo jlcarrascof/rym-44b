@@ -45,7 +45,7 @@ function Card({id, name, status, species, gender, origin, image, onClose, addFav
          <h2>{status}</h2>
          <h2>{species}</h2>
          <h2>{gender}</h2>
-         <h2>{origin}</h2>
+         <h2 style={{fontSize: '20px'}}>{origin}</h2>
          <img src={image} alt={name} />
       </div>
    );
