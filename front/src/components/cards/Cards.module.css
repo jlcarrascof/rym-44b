@@ -1,8 +1,8 @@
 .container {
-    border: solid 1px red;
+    border: none;
     border-radius: 2em;
     background-color: #58D893;
-    width: 90vw;
+    width: 93.5vw;
     display: flex;
     justify-content: center;
     align-items: center;
