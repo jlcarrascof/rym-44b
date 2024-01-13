@@ -50,13 +50,13 @@ function App() {
       axios(`https://localhost:3001/rickandmorty/character/${id}`)
       .then(({data})=>{
          if(data.name){
-            setCharacters(oldChars => [...oldChars,data])
+            setCharacters(oldChars => [...oldChars, data])
          }
          else {
-           alert( 'No hay personajes con ese ID')
+           return alert( 'No hay personajes con ese ID')
          }
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err.response.data.error));
    }
 
    const onClose = (id) => setCharacters(characters.filter(char => char.id !== parseInt(id)));
