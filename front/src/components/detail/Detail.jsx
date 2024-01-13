@@ -8,9 +8,7 @@ function Detail() {
     const { id } = useParams();
     const API_KEY = 'pi-javierjmartinezf';
     const [character, setCharacter] = useState({});
-    const URL = `https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
-
-    // console.log(character)
+    // const URL = `https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
 
     useEffect(() => {
         axios(`https://localhost:3001/rickandmorty/character/${id}`)

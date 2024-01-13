@@ -36,7 +36,7 @@ function App() {
    const API_KEY = 'pi-javierjmartinezf';
    const EMAIL = 'javier@mail.com';
    const PASSWORD = 'pass1234';
-   const URL = `https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
+   // const URL = `https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
 
    useEffect(() => {
       !access && navigate('/');
