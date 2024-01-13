@@ -49,12 +49,7 @@ function App() {
 
       axios(`https://localhost:3001/rickandmorty/character/${id}`)
       .then(({data})=>{
-         if(data.name){
-            setCharacters(oldChars => [...oldChars, data])
-         }
-         else {
-           return alert( 'No hay personajes con ese ID')
-         }
+         setCharacters(oldChars => [...oldChars, data])
       })
       .catch((err) => alert(err.response.data.error));
    }
