@@ -56,7 +56,7 @@ function App() {
            return alert( 'No hay personajes con ese ID')
          }
       })
-      .catch((err) => console.log(err.response.data.error));
+      .catch((err) => alert(err.response.data.error));
    }
 
    const onClose = (id) => setCharacters(characters.filter(char => char.id !== parseInt(id)));
