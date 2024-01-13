@@ -11,10 +11,9 @@ function Detail() {
     // const URL = `https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
 
     useEffect(() => {
-        axios(`https://localhost:3001/rickandmorty/character/${id}`)
+        axios(`http://localhost:3001/rickandmorty/character/${id}`)
             .then(({ data }) => setCharacter(data))
              return setCharacter({})
-
     }, [id]);
 
     return <div>
