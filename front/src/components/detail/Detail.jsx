@@ -8,21 +8,12 @@ function Detail() {
     const { id } = useParams();
     const API_KEY = 'pi-javierjmartinezf';
     const [character, setCharacter] = useState({});
-
-    // console.log(character)
+    // const URL = `https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
 
     useEffect(() => {
-        axios(`https://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`)
-            .then(({ data }) => { 
-                if (data.name) {
-                    setCharacter(data)
-                } else {
-                    alert('No hay personajes con ese ID')
-                }   
-             })
-
+        axios(`http://localhost:3001/rickandmorty/character/${id}`)
+            .then(({ data }) => setCharacter(data))
              return setCharacter({})
-
     }, [id]);
 
     return <div>
