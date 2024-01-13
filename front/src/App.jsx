@@ -48,9 +48,7 @@ function App() {
       if(characters.find(char => char.id === parseInt(id))) return alert (`Ya existe el personaje con ese id ${id}`)
 
       axios(`https://localhost:3001/rickandmorty/character/${id}`)
-      .then(({data})=>{
-         setCharacters(oldChars => [...oldChars, data])
-      })
+      .then(({data})=> setCharacters(oldChars => [...oldChars, data]))
       .catch((err) => alert(err.response.data.error));
    }
 

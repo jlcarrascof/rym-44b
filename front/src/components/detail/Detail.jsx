@@ -12,10 +12,7 @@ function Detail() {
 
     useEffect(() => {
         axios(`https://localhost:3001/rickandmorty/character/${id}`)
-            .then(({ data }) => { 
-                setCharacter(data)
-             })
-
+            .then(({ data }) => setCharacter(data))
              return setCharacter({})
 
     }, [id]);
