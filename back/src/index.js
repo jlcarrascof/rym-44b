@@ -10,7 +10,8 @@ http.createServer((req, res) => {
         const character = data.find((char) => char.id === parseInt(id));
         // console.log(character);
         if (character) {
-
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify(character));
         } else {
             res.writeHead(404, { 'Content-Type': 'application/json' });
             return res.end(JSON.stringify({ error: 'Character not found' }));
