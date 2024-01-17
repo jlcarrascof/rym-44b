@@ -1,4 +1,6 @@
 const http = require('http');
+const PORT = 3001;
+const HOST = 'localhost'; // 127.0.0.1
 const data = require('./utils/data');
 
 http.createServer((req, res) => {
@@ -15,4 +17,6 @@ http.createServer((req, res) => {
             return res.end(JSON.stringify({ error: 'Character not found' }));
         }    
     }
-}).listen(3001, "localhost");
+}).listen(PORT, HOST, () => {
+    console.log(`Server running at http://${HOST}:${PORT}`);
+});
