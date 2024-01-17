@@ -1,5 +1,5 @@
 require('dotenv').config();
-console.log(process.env);
+// console.log(process.env);
 const { PORT, HOST } = process.env;
 const http = require('http');
 const characters = require('./utils/data');
