@@ -10,15 +10,15 @@ const headers = {
 http.
     createServer((req, res) => {
         const { url } = req;
+        console.log(req);
         if (url.includes("/rickandmorty/character")) {
-            console.log(url.split("/"));
             const id = url.split("/").at(-1);
             const character = characters.find((char) => char.id === Number(id));
             res.writeHead(200, headers);
-            res.write(character);
+            res.write(JSON.stringify(character));
             res.end();
         } else {
-            res.writeHead(200, headers);
+            res.writeHead(404, headers);
             const obj = {
                 message: "Aún no tengo nada para esta ruta"
             };
