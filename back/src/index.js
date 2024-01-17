@@ -1,18 +1,31 @@
 const http = require('http');
 const PORT = 3001;
 const HOST = 'localhost'; // 127.0.0.1
-const data = require('./utils/data');
+const characters = require('./utils/data');
 const headers = {   
-    "Content-Type" : "text/plain",
+    "Content-Type" : "application/json",
     "Access-Control-Allow-Origin": "*",
 }; 
 
 http.
     createServer((req, res) => {
         const { url } = req;
-        res.writeHead(200, headers);
-        res.write('Hola desde el servidor');
-        res.end();    
+        if (url.includes("/rickandmorty/character")) {
+            console.log(url.split("/"));
+            const id = url.split("/").at(-1);
+            const character = characters.find((char) => char.id === Number(id));
+            res.writeHead(200, headers);
+            res.write(character);
+            res.end();
+        } else {
+            res.writeHead(200, headers);
+            const obj = {
+                message: "Aún no tengo nada para esta ruta"
+            };
+            res.write(JSON.stringify(obj));
+            res.end();
+        }   
+   
         /*
         if (url.includes('/rickandmorty/character')) {
             const id = url.split('/').at(-1);
