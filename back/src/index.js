@@ -1,6 +1,7 @@
+require('dotenv').config();
+console.log(process.env);
+const { PORT, HOST } = process.env;
 const http = require('http');
-const PORT = 3001;
-const HOST = 'localhost'; // 127.0.0.1
 const characters = require('./utils/data');
 const headers = {   
     "Content-Type" : "application/json",
