@@ -3,6 +3,7 @@ require('dotenv').config();
 const { PORT, HOST } = process.env;
 const http = require('http');
 const characters = require('./utils/data');
+const getCharById = require('./controllers/getCharById');
 const headers = {   
     "Content-Type" : "application/json",
     "Access-Control-Allow-Origin": "*",
@@ -14,6 +15,7 @@ http.
         console.log(req);
         if (url.includes("/rickandmorty/character")) {
             const id = url.split("/").at(-1);
+            // getCharById();
             const character = characters.find((char) => char.id === Number(id));
             res.writeHead(200, headers);
             res.write(JSON.stringify(character));
