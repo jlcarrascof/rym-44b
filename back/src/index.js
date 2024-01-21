@@ -15,6 +15,7 @@ http.
         console.log(req);
         if (url.includes("/rickandmorty/character")) {
             const id = url.split("/").at(-1);
+            // getCharById();
             const character = characters.find((char) => char.id === Number(id));
             res.writeHead(200, headers);
             res.write(JSON.stringify(character));
