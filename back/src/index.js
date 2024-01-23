@@ -4,11 +4,7 @@ const { PORT, HOST } = process.env;
 const http = require('http');
 const characters = require('./utils/data');
 const getCharById = require('./controllers/getCharById');
-const headers = {   
-    "Content-Type" : "application/json",
-    "Access-Control-Allow-Origin": "*",
-}; 
-
+const { headers } = require('./utils/reusable');
 http.
     createServer((req, res) => {
         const { url } = req;
