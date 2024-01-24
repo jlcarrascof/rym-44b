@@ -6,7 +6,6 @@ const headers = {
     "Access-Control-Allow-Origin": "*",
 }; 
 
-
 module.exports = {
     urlCharacterId, headers
 };

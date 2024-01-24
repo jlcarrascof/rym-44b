@@ -4,10 +4,14 @@ const { urlCharacterId, headers } = require('../utils/reusable');
 function getCharById(res, id) {
     axios(urlCharacterId(id))
     .then((res) => res.data)
-    .then((character) => { 
-        res.writeHead(200, headers);
-        res.write(JSON.stringify(character));
-        res.end();
+    .then((character) => {
+        if (character.name) {
+            res.writeHead(200, headers);
+            res.write(JSON.stringify(character));
+            res.end();
+        } else {
+            throw new Error(`No hay personajes con el id: ${id}`);
+        }
     })
     .catch((err) => console.log(err));        
 }
