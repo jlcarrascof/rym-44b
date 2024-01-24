@@ -13,7 +13,11 @@ function getCharById(res, id) {
             throw new Error(`No hay personajes con el id: ${id}`);
         }
     })
-    .catch((err) => console.log(err));        
+    .catch((err) => {
+        res.writeHead(400, headers);
+        res.write(JSON.stringify({ message: err.message }));
+        res.end();
+    });        
 }
 
 // then retorna una nueva promesa.
