@@ -7,7 +7,16 @@ function getCharById(res, id) {
     .then((character) => {
         if (character.name) {
             res.writeHead(200, headers);
-            res.write(JSON.stringify(character));
+            const personaje = {
+                id: id,
+                name: character.name,
+                status: character.status,
+                gender: character.gender,
+                species: character.species,
+                origin: character.origin,
+                image: character.image    
+            }
+            res.write(JSON.stringify(personaje));
             res.end();
         } else {
             throw new Error(`No hay personajes con el id: ${id}`);
