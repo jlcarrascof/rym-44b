@@ -9,7 +9,6 @@ function getCharById(res, id) {
         res.write(JSON.stringify(character));
         res.end();
     })
-    .then((data) => { console.log(data) }) 
     .catch((err) => console.log(err));        
 }
 
