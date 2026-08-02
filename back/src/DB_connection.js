@@ -1,5 +1,7 @@
 require('dotenv').config({ path: '../.env' });
 const { Sequelize } = require('sequelize');
+const UserModel = require('./models/User');
+const FavoriteModel = require('./models/Favorite');
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME } = process.env;
 
@@ -11,7 +13,18 @@ const sequelize = new Sequelize(
   }
 );
 
+// Definición de modelos
+UserModel(sequelize);
+FavoriteModel(sequelize);
+
+const { User, Favorite } = sequelize.models;
+
+// Relaciones Muchos a Muchos (N:M)
+User.belongsToMany(Favorite, { through: 'User_Favorites' });
+Favorite.belongsToMany(User, { through: 'User_Favorites' });
+
 module.exports = {
   conn: sequelize,
-  ...sequelize.models,
+  User,
+  Favorite,
 };
