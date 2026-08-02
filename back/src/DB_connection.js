@@ -13,13 +13,13 @@ const sequelize = new Sequelize(
   }
 );
 
-// Definición de modelos
+// Model definitions
 UserModel(sequelize);
 FavoriteModel(sequelize);
 
 const { User, Favorite } = sequelize.models;
 
-// Relaciones Muchos a Muchos (N:M)
+// Many-to-Many Associations (N:M)
 User.belongsToMany(Favorite, { through: 'User_Favorites' });
 Favorite.belongsToMany(User, { through: 'User_Favorites' });
 
