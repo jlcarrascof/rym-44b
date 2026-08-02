@@ -1,24 +1,17 @@
-require('dotenv').config();
-const { PORT, HOST } = process.env;
-const http = require('http');
-const characters = require('./utils/data');
-const getCharById = require('./controllers/getCharById');
-const { headers } = require('./utils/reusable');
-http.
-    createServer((req, res) => {
-        const { url } = req;
-        if (url.includes("/rickandmorty/character")) {
-            const id = url.split("/").at(-1);
-            getCharById(res, id);
-        } else {
-            res.writeHead(404, headers);
-            const obj = {
-                message: "Aún no tengo nada para esta ruta"
-            };
-            res.write(JSON.stringify(obj));
-            res.end();
-        }   
+require('dotenv').config({ path: '../.env' });
+const app = require('./app');
+const { conn } = require('./DB_connection');
 
-}).listen(PORT, HOST, () => {
-    console.log(`Server running at http://${HOST}:${PORT}`);
-});
+const PORT = process.env.PORT || 3001;
+const HOST = process.env.DB_HOST || 'localhost';
+
+conn.sync({ force: false })
+  .then(() => {
+    console.log('Database synced successfully with PostgreSQL');
+    app.listen(PORT, () => {
+      console.log(`Server Express running at http://${HOST}:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('Failed to sync database:', err.message);
+  });
