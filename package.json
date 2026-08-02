@@ -1,0 +1,14 @@
+{
+  "name": "rym-44b-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rick and Morty Full Stack Application Monorepo",
+  "scripts": {
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f db",
+    "docker:ps": "docker compose ps",
+    "start:back": "npm --prefix back start",
+    "dev:front": "npm --prefix front dev"
+  }
+}
