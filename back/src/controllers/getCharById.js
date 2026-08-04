@@ -1,38 +1,33 @@
 const axios = require('axios');
-const { urlCharacterId, headers } = require('../utils/reusable');
 
-function getCharById(res, id) {
-    axios(urlCharacterId(id))
-    .then((res) => res.data)
-    .then((character) => {
-        if (character.name) {
-            res.writeHead(200, headers);
-            const personaje = {
-                id: id,
-                name: character.name,
-                status: character.status,
-                gender: character.gender,
-                species: character.species,
-                origin: character.origin,
-                location: character.location,
-                type: character.type,
-                image: character.image    
-            }
-            res.write(JSON.stringify(personaje));
-            res.end();
-        } else {
-            throw new Error(`No hay personajes con el id: ${id}`);
-        }
-    })
-    .catch((err) => {
-        res.writeHead(400, headers);
-        res.write(JSON.stringify({ message: err.message }));
-        res.end();
-    });        
-}
+const URL = 'https://rickandmortyapi.com/api/character/';
 
-// then retorna una nueva promesa.
-// como?
-// map retorna un nuevo arreglo? porque? porque quien creo el metodo asi lo definio.
+const getCharById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { data } = await axios.get(`${URL}${id}`);
+
+    if (!data.name) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const character = {
+      id: Number(data.id),
+      name: data.name,
+      gender: data.gender,
+      species: data.species,
+      origin: data.origin,
+      image: data.image,
+      status: data.status,
+    };
+
+    return res.status(200).json(character);
+  } catch (error) {
+    if (error.response && error.response.status === 404) {
+      return res.status(404).json({ error: 'Not found' });
+    }
+    return res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = getCharById;
