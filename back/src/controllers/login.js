@@ -1,3 +1,4 @@
+const bcrypt = require('bcryptjs');
 const { User } = require('../DB_connection');
 
 const login = async (req, res) => {
@@ -14,7 +15,9 @@ const login = async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    if (user.password !== password) {
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
       return res.status(403).json({ error: 'Invalid password' });
     }
 
