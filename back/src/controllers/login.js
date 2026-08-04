@@ -1,12 +1,18 @@
 const bcrypt = require('bcryptjs');
 const { User } = require('../DB_connection');
 
+const emailRegex = /^\S+@\S+\.\S+$/;
+
 const login = async (req, res) => {
   try {
     const { email, password } = req.query;
 
     if (!email || !password) {
       return res.status(400).json({ error: 'Missing parameters' });
+    }
+
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email format' });
     }
 
     const user = await User.findOne({ where: { email } });
