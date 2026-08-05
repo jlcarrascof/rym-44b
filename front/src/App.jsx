@@ -19,35 +19,40 @@ function App() {
    const [characters, setCharacters] = useState([]);
    const [access, setAccess] = useState(false);
 
-   const API_KEY = 'pi-javierjmartinezf';
-   const EMAIL = 'javier@mail.com';
-   const PASSWORD = 'pass1234';
-   // const URL = `http://rym2.up.railway.app/api/character/${id}?key=${API_KEY}`;
-
    useEffect(() => {
       !access && navigate('/');
-   }, [access]);
+   }, [access, navigate]);
 
 
-   function onSearch(id) {
-      if (!id) alert('Ingresa por favor un ID')
-      if (characters.find((char) => char.id === parseInt(id))) return alert (`Ya existe el personaje con ese id ${id}`)
+  function onSearch(id) {
+    if (!id) return alert('Please enter a character ID');
+    if (characters.find((char) => Number(char.id) === Number(id))) {
+      return alert(`Character with ID ${id} is already added`);
+    }
 
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      .then(({data})=> setCharacters((oldChars) => [...oldChars, data]))
-      .catch((err) => alert(err.response.data.error));
-   }
+    axios(`/rickandmorty/character/${id}`)
+      .then(({ data }) => setCharacters((oldChars) => [...oldChars, data]))
+      .catch((err) => {
+        const msg = err.response?.data?.error || 'Character not found';
+        alert(msg);
+      });
+  }
 
-   const onClose = (id) => setCharacters(characters.filter((char) => char.id !== parseInt(id)));
+  const onClose = (id) => setCharacters(characters.filter((char) => Number(char.id) !== Number(id)));
 
-   function login(userData) { 
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
-      } else {
-         alert('Usuario o contraseña incorrectos');
+  async function login(userData) {
+    try {
+      const { email, password } = userData;
+      const { data } = await axios(`/rickandmorty/login?email=${email}&password=${password}`);
+      if (data.access) {
+        setAccess(true);
+        navigate('/home');
       }
-   }
+    } catch (error) {
+      const errorMsg = error.response?.data?.error || 'Invalid credentials';
+      alert(errorMsg);
+    }
+  }
 
    return (
       <div className='App'>
