@@ -32,9 +32,9 @@ function Form({login}) {
                 Email:
                 <input 
                     type="text"
-                    placeholder='Ingrese un email'
+                    placeholder="Enter email address"
                     id="email"
-                    name='email'
+                    name="email"
                     value={userData.email}
                     onChange={handleChange} />
             </label>
@@ -45,10 +45,10 @@ function Form({login}) {
             <label htmlFor="password">
                 Password:
                 <input 
-                    type="text"
-                    placeholder='Ingrese un password'
-                    id='password'
-                    name='password'
+                    type="password"
+                    placeholder="Enter password"
+                    id="password"
+                    name="password"
                     value={userData.password}
                     onChange={handleChange} />
             </label>
