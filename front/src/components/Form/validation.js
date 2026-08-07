@@ -1,24 +1,15 @@
-const regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const exLongChar = /^(?=.{1,35}$).+/;
-const regexPassword = /^(?=.*\d)[0-9a-zA-Z]{6,10}$/
+const regexPassword = /^(?=.*\d)[0-9a-zA-Z]{6,10}$/;
 
 function validation(data) {
-    let errors = {};
+  const errors = {};
 
-    if (!regexEmail.test(data.email)) errors.email = 'El correo electrónico no es válido';
-    if (!exLongChar.test(data.email)) errors.email = 'La longitud debe tener entre 1 y 35 caracteres';
-    if (!regexPassword.test(data.password)) errors.password = 'La contraseña debe tener entre 6 y 10 caracteres y al menos un número';
+  if (!regexEmail.test(data.email)) errors.email = 'Invalid email address';
+  if (!exLongChar.test(data.email)) errors.email = 'Email length must be between 1 and 35 characters';
+  if (!regexPassword.test(data.password)) errors.password = 'Password must contain between 6 and 10 characters and at least one number';
 
-    // Option 2 (using Javascript logic)
-    
-    /*
-    if (data.email === '') errors.email = 'El correo electrónico es requerido';
-    if (data.email.length > 35) errors.email = 'La longitud debe tener entre 1 y 35 caracteres';
-    if (data.password === '') errors.password = 'La contraseña es requerida';
-    if (data.password.length < 6) errors.password = 'La contraseña debe tener entre 6 y 10 caracteres y al menos un número';
-    */
-
-    return errors;
+  return errors;
 }
 
 export default validation;

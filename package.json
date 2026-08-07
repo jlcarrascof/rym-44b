@@ -9,6 +9,6 @@
     "docker:logs": "docker compose logs -f db",
     "docker:ps": "docker compose ps",
     "start:back": "npm --prefix back start",
-    "dev:front": "npm --prefix front dev"
+    "dev:front": "npm --prefix front run dev"
   }
 }
