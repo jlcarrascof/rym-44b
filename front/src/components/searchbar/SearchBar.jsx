@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Btn, DivSearch, Input } from './SearchStyled';  
 
 export default function SearchBar({ onSearch }) {
@@ -21,17 +22,24 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <DivSearch>
+    <DivSearch role="search">
       <Input
         type="search"
         placeholder="Enter ID (1-826)..."
+        aria-label="Character ID search input"
         onChange={handleChange}
         value={id}
       />
-      <Btn onClick={search}>Add</Btn>
-      <Btn onClick={handleRandom} style={{ marginLeft: '5px' }}>
+      <Btn onClick={search} aria-label="Add character by ID">
+        Add
+      </Btn>
+      <Btn onClick={handleRandom} style={{ marginLeft: '5px' }} aria-label="Add random character">
         Random 🎲
       </Btn>
     </DivSearch>
   );
 }
+
+SearchBar.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};
