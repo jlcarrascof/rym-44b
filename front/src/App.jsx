@@ -7,7 +7,7 @@ import Cards from './components/cards/Cards.jsx';
 import About from './components/about/About';
 import Detail from './components/detail/Detail';
 import Error404 from './components/error404/Error404';
-import Form from './components/form/Form';
+import Form from './components/Form/Form';
 import Favorites from './components/favorites/Favorites';
 
 
