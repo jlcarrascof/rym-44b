@@ -23,6 +23,16 @@ function App() {
       !access && navigate('/');
    }, [access, navigate]);
 
+   useEffect(() => {
+      const handleKeyDown = (event) => {
+         if (event.key === 'Escape' && pathname !== '/') {
+            navigate('/home');
+         }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+   }, [pathname, navigate]);
+
 
   function onSearch(id) {
     if (!id) return alert('Please enter a character ID');
