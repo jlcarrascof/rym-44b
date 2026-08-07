@@ -66,16 +66,22 @@ function App() {
 
    return (
       <div className='App'>
-         { pathname !== '/' && <Nav onSearch={onSearch} /> }
-         <Routes>
-            <Route path='/' element={<Form login={login} />} />
-            <Route path='/home' 
-            element={<Cards characters={characters} onClose={onClose} />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/detail/:id' element={<Detail />} /> 
-            <Route path='/favorites' element={<Favorites />} /> 
-            <Route path='*' element={<Error404 />} />
-         </Routes>   
+         { pathname !== '/' && (
+            <header role="banner">
+               <Nav onSearch={onSearch} />
+            </header>
+         )}
+         <main role="main">
+            <Routes>
+               <Route path='/' element={<Form login={login} />} />
+               <Route path='/home' 
+               element={<Cards characters={characters} onClose={onClose} />} />
+               <Route path='/about' element={<About />} />
+               <Route path='/detail/:id' element={<Detail />} /> 
+               <Route path='/favorites' element={<Favorites />} /> 
+               <Route path='*' element={<Error404 />} />
+            </Routes>
+         </main>   
       </div>
    );
 }

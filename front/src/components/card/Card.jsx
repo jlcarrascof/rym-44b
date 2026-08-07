@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavAsync, removeFavAsync } from '../../redux/actions';
 import { Link, useLocation } from 'react-router-dom';
@@ -32,19 +33,25 @@ export default function Card({ id, name, status, species, gender, origin, image,
   }, [myFavorites, id]);
 
   return (
-    <div className={style.container}>
+    <div className={style.container} role="article">
       <div>
-        {pathname === '/home' && (
-          <button onClick={() => onClose(id)}>X</button>
+        {pathname === '/home' && onClose && (
+          <button
+            onClick={() => onClose(id)}
+            aria-label={`Close card for ${name}`}
+          >
+            X
+          </button>
         )}
-        {isFav ? (
-          <button onClick={handleFavorite}>❤️</button>
-        ) : (
-          <button onClick={handleFavorite}>🤍</button>
-        )}
+        <button
+          onClick={handleFavorite}
+          aria-label={isFav ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
+        >
+          {isFav ? '❤️' : '🤍'}
+        </button>
       </div>
       <h2>{id}</h2>
-      <Link to={`/detail/${id}`}>
+      <Link to={`/detail/${id}`} aria-label={`View details for ${name}`}>
         <h2>{name}</h2>
       </Link>
       <h2>{status}</h2>
@@ -55,3 +62,14 @@ export default function Card({ id, name, status, species, gender, origin, image,
     </div>
   );
 }
+
+Card.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  name: PropTypes.string.isRequired,
+  status: PropTypes.string,
+  species: PropTypes.string,
+  gender: PropTypes.string,
+  origin: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  image: PropTypes.string.isRequired,
+  onClose: PropTypes.func,
+};
