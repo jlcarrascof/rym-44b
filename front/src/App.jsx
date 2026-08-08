@@ -1,18 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Nav from './components/nav/Nav.jsx'; 
 import Cards from './components/cards/Cards.jsx';
-import About from './components/about/About';
-import Detail from './components/detail/Detail';
-import Error404 from './components/error404/Error404';
 import Form from './components/Form/Form';
-import Favorites from './components/favorites/Favorites';
 
+const About = lazy(() => import('./components/about/About'));
+const Detail = lazy(() => import('./components/detail/Detail'));
+const Favorites = lazy(() => import('./components/favorites/Favorites'));
+const Error404 = lazy(() => import('./components/error404/Error404'));
 
 function App() {
-   
    const { pathname } = useLocation();
    const navigate = useNavigate();
    
@@ -32,7 +31,6 @@ function App() {
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
    }, [pathname, navigate]);
-
 
   function onSearch(id) {
     if (!id) return alert('Please enter a character ID');
@@ -72,15 +70,17 @@ function App() {
             </header>
          )}
          <main role="main">
-            <Routes>
-               <Route path='/' element={<Form login={login} />} />
-               <Route path='/home' 
-               element={<Cards characters={characters} onClose={onClose} />} />
-               <Route path='/about' element={<About />} />
-               <Route path='/detail/:id' element={<Detail />} /> 
-               <Route path='/favorites' element={<Favorites />} /> 
-               <Route path='*' element={<Error404 />} />
-            </Routes>
+            <Suspense fallback={<div style={{ color: '#fff', textAlign: 'center', padding: '2rem' }}>Loading view...</div>}>
+               <Routes>
+                  <Route path='/' element={<Form login={login} />} />
+                  <Route path='/home' 
+                  element={<Cards characters={characters} onClose={onClose} />} />
+                  <Route path='/about' element={<About />} />
+                  <Route path='/detail/:id' element={<Detail />} /> 
+                  <Route path='/favorites' element={<Favorites />} /> 
+                  <Route path='*' element={<Error404 />} />
+               </Routes>
+            </Suspense>
          </main>   
       </div>
    );
