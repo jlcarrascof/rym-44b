@@ -7,12 +7,12 @@ function Favorites() {
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.favorites.myFavorites);
 
-  function handleOrder(evento) {
-    dispatch(orderCards(evento.target.value));
+  function handleOrder(event) {
+    dispatch(orderCards(event.target.value));
   }
 
-  function handleFilter(evento) {
-    dispatch(filterCards(evento.target.value));
+  function handleFilter(event) {
+    dispatch(filterCards(event.target.value));
   }
 
   return (

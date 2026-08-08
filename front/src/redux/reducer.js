@@ -31,7 +31,7 @@ function reducer(state = initialState, { type, payload }) {
      case ORDER: {
         const orderChar = state.myFavorites.
         sort((a, b) => {
-            if (payload === 'ascendente') 
+            if (payload === 'A' || payload === 'ascending') 
                 return a.id - b.id;
             return b.id - a.id;
         });

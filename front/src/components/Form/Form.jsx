@@ -11,22 +11,22 @@ function Form({ login }) {
 
   const [errors, setErrors] = useState({});
 
-  function handleChange(evento) {
+  function handleChange(event) {
     setErrors(
       validation({
         ...userData,
-        [evento.target.name]: evento.target.value,
+        [event.target.name]: event.target.value,
       })
     );
 
     setUserData({
       ...userData,
-      [evento.target.name]: evento.target.value,
+      [event.target.name]: event.target.value,
     });
   }
 
-  function handleSubmit(evento) {
-    evento.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     login(userData);
   }
 
