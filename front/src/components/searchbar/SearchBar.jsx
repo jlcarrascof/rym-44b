@@ -5,8 +5,8 @@ import { Btn, BtnRandom, DivSearch, Input } from './SearchStyled';
 export default function SearchBar({ onSearch }) {
   const [id, setID] = useState('');
 
-  const handleChange = (evento) => {
-    setID(evento.target.value);
+  const handleChange = (event) => {
+    setID(event.target.value);
   };
 
   const search = () => {

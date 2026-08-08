@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import validation from './validation';
 import style from './Form.module.css';
 
@@ -10,22 +11,22 @@ function Form({ login }) {
 
   const [errors, setErrors] = useState({});
 
-  function handleChange(evento) {
+  function handleChange(event) {
     setErrors(
       validation({
         ...userData,
-        [evento.target.name]: evento.target.value,
+        [event.target.name]: event.target.value,
       })
     );
 
     setUserData({
       ...userData,
-      [evento.target.name]: evento.target.value,
+      [event.target.name]: event.target.value,
     });
   }
 
-  function handleSubmit(evento) {
-    evento.preventDefault();
+  function handleSubmit(event) {
+    event.preventDefault();
     login(userData);
   }
 
@@ -76,5 +77,9 @@ function Form({ login }) {
     </div>
   );
 }
+
+Form.propTypes = {
+  login: PropTypes.func.isRequired,
+};
 
 export default Form;
