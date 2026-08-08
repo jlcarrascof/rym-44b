@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Outfit', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Space Grotesk', 'Outfit', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -16,25 +16,37 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #06b6d4;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #34d399;
 } 
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+  width: 100%;
   min-height: 100vh;
+  background-color: #0f172a;
+  color: #f8fafc;
+  overflow-x: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
