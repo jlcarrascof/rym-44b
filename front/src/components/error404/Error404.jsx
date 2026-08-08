@@ -5,9 +5,10 @@ function Error404() {
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        setTimeout(()=> navigate('/'), 3000)
-    },[])
+    useEffect(() => {
+        const timer = setTimeout(() => navigate('/'), 3000);
+        return () => clearTimeout(timer);
+    }, [navigate]);
 
     return <div>
         <img src="https://res.cloudinary.com/dpiy1qwcm/image/upload/v1684371895/Error_404_m6fj3t.gif" alt="error404" />

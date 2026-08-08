@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import validation from './validation';
 import style from './Form.module.css';
 
@@ -76,5 +77,9 @@ function Form({ login }) {
     </div>
   );
 }
+
+Form.propTypes = {
+  login: PropTypes.func.isRequired,
+};
 
 export default Form;
