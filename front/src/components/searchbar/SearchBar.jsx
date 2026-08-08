@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Btn, DivSearch, Input } from './SearchStyled';  
+import { Btn, BtnRandom, DivSearch, Input } from './SearchStyled';  
 
 export default function SearchBar({ onSearch }) {
   const [id, setID] = useState('');
@@ -33,9 +33,9 @@ export default function SearchBar({ onSearch }) {
       <Btn onClick={search} aria-label="Add character by ID">
         Add
       </Btn>
-      <Btn onClick={handleRandom} style={{ marginLeft: '5px' }} aria-label="Add random character">
+      <BtnRandom onClick={handleRandom} aria-label="Add random character">
         Random 🎲
-      </Btn>
+      </BtnRandom>
     </DivSearch>
   );
 }
