@@ -32,33 +32,55 @@ export default function Card({ id, name, status, species, gender, origin, image,
     }
   }, [myFavorites, id]);
 
+  const getStatusBadgeClass = () => {
+    if (status === 'Alive') return style.statusAlive;
+    if (status === 'Dead') return style.statusDead;
+    return style.statusUnknown;
+  };
+
   return (
     <div className={style.container} role="article">
-      <div>
-        {pathname === '/home' && onClose && (
+      <div className={style.topBar}>
+        {pathname === '/home' && onClose ? (
           <button
             onClick={() => onClose(id)}
             aria-label={`Close card for ${name}`}
+            className={style.closeBtn}
           >
-            X
+            ✕
           </button>
+        ) : (
+          <div />
         )}
+        <span className={style.idBadge}>#{id}</span>
         <button
           onClick={handleFavorite}
           aria-label={isFav ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
+          className={style.favBtn}
         >
           {isFav ? '❤️' : '🤍'}
         </button>
       </div>
-      <h2>{id}</h2>
-      <Link to={`/detail/${id}`} aria-label={`View details for ${name}`}>
-        <h2>{name}</h2>
+
+      <Link to={`/detail/${id}`} className={style.charName} aria-label={`View details for ${name}`}>
+        {name}
       </Link>
-      <h2>{status}</h2>
-      <h2>{species}</h2>
-      <h2>{gender}</h2>
-      <h2 style={{ fontSize: '20px' }}>{origin}</h2>
-      <img src={image} alt={name} />
+
+      <div className={style.badgeGroup}>
+        <span className={`${style.statusBadge} ${getStatusBadgeClass()}`}>
+          {status === 'Alive' ? '🟢 Alive' : status === 'Dead' ? '🔴 Dead' : '⚪ unknown'}
+        </span>
+        <span className={style.infoText}>• {species}</span>
+      </div>
+
+      <p className={style.infoText}>{gender}</p>
+      <p className={style.infoText} style={{ fontSize: '0.8rem', color: '#cbd5e1' }}>
+        📍 {typeof origin === 'object' ? origin.name : origin}
+      </p>
+
+      <div className={style.imgWrapper}>
+        <img src={image} alt={name} />
+      </div>
     </div>
   );
 }
