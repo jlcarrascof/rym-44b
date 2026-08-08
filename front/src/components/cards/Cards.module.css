@@ -1,13 +1,17 @@
 .container {
-    border: none;
-    border-radius: 2em;
-    background-color: #58D893;
-    width: 93.5vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 2em;
-    margin: 1em;
-    height: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  width: 90vw;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
