@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/rickandmorty/:path*",
+      "destination": "https://rym-backend-api.onrender.com/rickandmorty/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
