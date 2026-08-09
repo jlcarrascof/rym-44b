@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import Card from '../Card/Card';
+import Card from '../card/Card';
 import style from './Cards.module.css';
 
 export default function Cards({ characters, onClose }) {
